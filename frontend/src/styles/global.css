@@ -1,0 +1,415 @@
+:root {
+  color-scheme: light;
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --app-bg:
+    radial-gradient(circle at 0% 0%, rgba(244, 63, 94, 0.16), transparent 44%),
+    radial-gradient(circle at 100% 0%, rgba(59, 130, 246, 0.14), transparent 46%),
+    radial-gradient(circle at 90% 100%, rgba(16, 185, 129, 0.12), transparent 44%),
+    linear-gradient(180deg, #f7f9ff 0%, #eef4ff 100%);
+  --main-bg:
+    radial-gradient(circle at -8% -8%, rgba(168, 85, 247, 0.16), transparent 42%),
+    radial-gradient(circle at 6% 104%, rgba(34, 197, 94, 0.12), transparent 44%),
+    linear-gradient(168deg, rgba(245, 248, 255, 0.98) 0%, rgba(239, 244, 255, 0.98) 48%, rgba(237, 248, 246, 0.98) 100%);
+  --main-overlay:
+    radial-gradient(85% 120% at -14% 6%, rgba(168, 85, 247, 0.13), transparent 62%),
+    radial-gradient(80% 115% at -10% 100%, rgba(22, 163, 74, 0.1), transparent 64%),
+    radial-gradient(75% 95% at 100% 0%, rgba(59, 130, 246, 0.08), transparent 68%);
+  --card-bg: rgba(255, 255, 255, 0.76);
+  --card-border: rgba(148, 163, 184, 0.34);
+  --card-shadow: 0 14px 30px rgba(15, 23, 42, 0.1);
+  --topbar-bg: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(241, 245, 255, 0.84));
+  --topbar-border: rgba(148, 163, 184, 0.34);
+  --content-title: #0f172a;
+  --content-strong: #1e293b;
+  --content-muted: #475569;
+  --surface-bg: rgba(255, 255, 255, 0.72);
+  --surface-border: rgba(148, 163, 184, 0.4);
+  --input-bg: rgba(255, 255, 255, 0.9);
+  --input-text: #0f172a;
+  --input-border: rgba(148, 163, 184, 0.52);
+  --input-placeholder: #64748b;
+  --chart-axis: #334155;
+  --chart-grid: rgba(148, 163, 184, 0.34);
+  --tooltip-bg: rgba(255, 255, 255, 0.97);
+  --tooltip-border: rgba(148, 163, 184, 0.45);
+  --tooltip-text: #0f172a;
+  --sidebar-text: rgba(241, 245, 249, 0.94);
+  --sidebar-muted: rgba(148, 163, 184, 0.85);
+}
+
+:root.dark {
+  color-scheme: dark;
+  --text-main: #e2e8f0;
+  --text-muted: #a7b5c9;
+  --app-bg:
+    radial-gradient(circle at 0% 0%, rgba(244, 63, 94, 0.22), transparent 42%),
+    radial-gradient(circle at 100% 0%, rgba(59, 130, 246, 0.22), transparent 44%),
+    radial-gradient(circle at 100% 100%, rgba(16, 185, 129, 0.2), transparent 42%),
+    linear-gradient(180deg, #020617 0%, #07111f 100%);
+  --main-bg:
+    radial-gradient(circle at -12% -8%, rgba(168, 85, 247, 0.24), transparent 38%),
+    radial-gradient(circle at 8% 106%, rgba(34, 197, 94, 0.22), transparent 42%),
+    linear-gradient(168deg, rgba(4, 10, 20, 0.95) 0%, rgba(6, 15, 31, 0.98) 48%, rgba(8, 23, 22, 0.96) 100%);
+  --main-overlay:
+    radial-gradient(80% 120% at -16% 8%, rgba(168, 85, 247, 0.18), transparent 58%),
+    radial-gradient(78% 110% at -10% 100%, rgba(22, 163, 74, 0.14), transparent 62%),
+    radial-gradient(70% 85% at 100% 0%, rgba(59, 130, 246, 0.12), transparent 66%);
+  --card-bg: rgba(12, 22, 38, 0.9);
+  --card-border: rgba(71, 85, 105, 0.65);
+  --card-shadow: 0 20px 42px rgba(2, 6, 23, 0.56);
+  --topbar-bg: linear-gradient(145deg, rgba(9, 18, 34, 0.9), rgba(10, 18, 30, 0.74));
+  --topbar-border: rgba(148, 163, 184, 0.26);
+  --content-title: #f8fafc;
+  --content-strong: #e2e8f0;
+  --content-muted: #9fb0c9;
+  --surface-bg: rgba(15, 23, 42, 0.58);
+  --surface-border: rgba(100, 116, 139, 0.52);
+  --input-bg: rgba(15, 23, 42, 0.72);
+  --input-text: #e2e8f0;
+  --input-border: rgba(100, 116, 139, 0.62);
+  --input-placeholder: #93a6be;
+  --chart-axis: #cbd5e1;
+  --chart-grid: rgba(100, 116, 139, 0.44);
+  --tooltip-bg: rgba(15, 23, 42, 0.95);
+  --tooltip-border: rgba(100, 116, 139, 0.65);
+  --tooltip-text: #e2e8f0;
+  --sidebar-text: rgba(248, 250, 252, 0.96);
+  --sidebar-muted: rgba(148, 163, 184, 0.88);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+  color: var(--text-main);
+  background: var(--app-bg);
+  transition: background 220ms ease, color 220ms ease;
+}
+
+.app-shell {
+  color: var(--text-main);
+}
+
+.app-main {
+  position: relative;
+  background: var(--main-bg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: local;
+  transition: background 220ms ease;
+}
+
+.app-main::before {
+  content: none;
+}
+
+.dashboard-topbar {
+  border: 1px solid var(--topbar-border) !important;
+  border-radius: 18px;
+  margin: 14px 16px 8px;
+  background: var(--topbar-bg) !important;
+  box-shadow: var(--card-shadow);
+}
+
+.kpi-card,
+section.rounded-2xl,
+article.rounded-2xl {
+  background: var(--card-bg) !important;
+  border-color: var(--card-border) !important;
+  box-shadow: var(--card-shadow);
+  transition: border-color 220ms ease, background-color 220ms ease, box-shadow 220ms ease;
+}
+
+.kpi-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.kpi-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(125deg, rgba(16, 185, 129, 0.12), transparent 44%),
+    linear-gradient(25deg, rgba(168, 85, 247, 0.14), transparent 52%);
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.kpi-card:hover::before {
+  opacity: 1;
+}
+
+.app-main .text-slate-900 {
+  color: var(--content-title) !important;
+}
+
+.app-main .text-slate-800 {
+  color: var(--content-strong) !important;
+}
+
+.app-main .text-slate-700,
+.app-main .text-slate-600,
+.app-main .text-slate-500 {
+  color: var(--content-muted) !important;
+}
+
+.app-main .bg-slate-50,
+.app-main .bg-slate-100,
+.app-main .bg-white {
+  background-color: var(--surface-bg) !important;
+}
+
+.app-main .border-slate-100,
+.app-main .border-slate-200,
+.app-main .border-slate-300,
+.app-main .border-blue-200 {
+  border-color: var(--surface-border) !important;
+}
+
+.app-main input,
+.app-main select {
+  background: var(--input-bg) !important;
+  color: var(--input-text) !important;
+  border-color: var(--input-border) !important;
+}
+
+.app-main input::placeholder {
+  color: var(--input-placeholder) !important;
+}
+
+.app-main .recharts-cartesian-axis-tick-value,
+.app-main .recharts-polar-angle-axis-tick-value,
+.app-main .recharts-polar-radius-axis-tick-value,
+.app-main .recharts-legend-item-text {
+  fill: var(--chart-axis) !important;
+  color: var(--chart-axis) !important;
+}
+
+.app-main .recharts-cartesian-grid line {
+  stroke: var(--chart-grid);
+}
+
+.sidebar-panel {
+  background: linear-gradient(170deg, rgba(20, 18, 21, 0.96) 6%, rgba(15, 20, 28, 0.96) 45%, rgba(14, 34, 26, 0.93) 100%);
+  color: var(--sidebar-text);
+}
+
+.sidebar-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 0% 100%, rgba(34, 197, 94, 0.22), transparent 46%),
+    radial-gradient(circle at 100% 0%, rgba(168, 85, 247, 0.16), transparent 46%);
+  pointer-events: none;
+}
+
+.sidebar-signature {
+  margin: 0;
+  font-family: "Satisfy", "Kaushan Script", "Dancing Script", "Brush Script MT", cursive;
+  font-size: 2.25rem;
+  line-height: 1;
+  color: var(--sidebar-text);
+  letter-spacing: 0.01em;
+}
+
+.sidebar-user-tag {
+  display: inline-flex;
+  max-width: 100%;
+  align-items: center;
+  gap: 0.3rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(15, 23, 42, 0.46);
+  padding: 0.2rem 0.58rem;
+  font-size: 0.73rem;
+  color: rgba(226, 232, 240, 0.92);
+  cursor: pointer;
+  appearance: none;
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+
+.sidebar-user-tag:hover {
+  background: rgba(30, 41, 59, 0.6);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.sidebar-user-tag-active {
+  border-color: rgba(255, 255, 255, 0.34);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.08));
+}
+
+.sidebar-user-dot {
+  display: inline-block;
+  height: 4px;
+  width: 4px;
+  border-radius: 999px;
+  background: rgba(226, 232, 240, 0.62);
+}
+
+.sidebar-scroll {
+  scrollbar-color: rgba(148, 163, 184, 0.35) transparent;
+}
+
+.sidebar-section-label {
+  margin: 0;
+  font-size: 0.78rem;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  color: var(--sidebar-muted);
+}
+
+.sidebar-link {
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: 14px;
+  padding: 0.62rem 0.7rem;
+  background: transparent;
+  color: rgba(226, 232, 240, 0.92);
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+.sidebar-link:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.09);
+}
+
+.sidebar-link-active {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.07));
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.sidebar-theme-track {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.4rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  background: rgba(255, 255, 255, 0.07);
+  padding: 0.3rem;
+}
+
+.sidebar-theme-option {
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  padding: 0.48rem 0.3rem;
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: rgba(226, 232, 240, 0.95);
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+
+.sidebar-theme-option-active {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.dark .text-slate-900 {
+  color: #f8fafc !important;
+}
+
+.dark .text-slate-800 {
+  color: #e2e8f0 !important;
+}
+
+.dark .text-slate-700 {
+  color: #cbd5e1 !important;
+}
+
+.dark .text-slate-600,
+.dark .text-slate-500 {
+  color: #a7b5c9 !important;
+}
+
+.dark .bg-slate-50,
+.dark .bg-blue-50,
+.dark .bg-white,
+.dark .bg-slate-100 {
+  background-color: rgba(15, 23, 42, 0.65) !important;
+}
+
+.dark .border-slate-300,
+.dark .border-slate-200,
+.dark .border-slate-100,
+.dark .border-blue-200 {
+  border-color: rgba(71, 85, 105, 0.62) !important;
+}
+
+.dark input,
+.dark select {
+  background: rgba(15, 23, 42, 0.72) !important;
+  color: #e2e8f0 !important;
+  border-color: rgba(100, 116, 139, 0.62) !important;
+}
+
+.dark input::placeholder {
+  color: #93a6be;
+}
+
+.dark .recharts-cartesian-grid line {
+  stroke: rgba(71, 85, 105, 0.48);
+}
+
+.recharts-tooltip-wrapper .recharts-default-tooltip {
+  background: var(--tooltip-bg) !important;
+  border: 1px solid var(--tooltip-border) !important;
+  border-radius: 10px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.12);
+}
+
+.recharts-tooltip-wrapper .recharts-tooltip-label,
+.recharts-tooltip-wrapper .recharts-tooltip-item-name,
+.recharts-tooltip-wrapper .recharts-tooltip-item-value {
+  color: var(--tooltip-text) !important;
+  font-weight: 600;
+}
+
+button,
+input,
+select {
+  font-family: inherit;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 500,
+    "GRAD" 0,
+    "opsz" 24;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(148, 163, 184, 0.15);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(71, 85, 105, 0.45);
+}
+
+@media (max-width: 1023px) {
+  .sidebar-panel {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+  }
+
+  .dashboard-topbar {
+    margin: 10px 10px 6px;
+  }
+}
