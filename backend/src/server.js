@@ -10,6 +10,7 @@ dotenv.config();
 
 const app = express();
 
+const host = process.env.HOST || "127.0.0.1";
 const port = Number(process.env.PORT || 4000);
 const mongoUri = process.env.MONGODB_URI;
 const allowedOrigins = String(process.env.CLIENT_ORIGIN || "")
@@ -50,10 +51,10 @@ app.use((error, _req, res, _next) => {
 async function start() {
   await connectDatabase(mongoUri);
 
-  app.listen(port, () => {
+  app.listen(port, host, () => {
     const originSummary = allowedOrigins.length ? allowedOrigins.join(", ") : "any origin";
     console.log(`Allowed client origins: ${originSummary}`);
-    console.log(`Backend listening on http://localhost:${port}`);
+    console.log(`Backend listening on http://${host}:${port}`);
   });
 }
 

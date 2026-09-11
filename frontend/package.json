@@ -12,7 +12,7 @@
     "jspdf": "^4.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "recharts": "^3.7.0",
+    "recharts": "^3.8.1",
     "write-excel-file": "^2.3.10"
   },
   "devDependencies": {
