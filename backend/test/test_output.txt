@@ -1,0 +1,17 @@
+=================================================
+       PERFORMIQ AI PIPELINE VALIDATION SUITE    
+=================================================
+
+[PASS] Test 1: Intent detection routes specific HR questions to HR
+[PASS] Test 2: Agent selection respects the actual question, not generic keywords
+[PASS] Test 3: Best employee answers use an employee ID from the active dataset
+[PASS] Test 4: Follow-up questions keep the current context grounded to the previous department
+[PASS] Test 5: HR Routing & Analysis - Attrition Question
+[PASS] Test 6: Sales Routing & Analysis - Revenue Question
+[PASS] Test 7: Finance Routing & Analysis - Total Expenses Question
+[PASS] Test 8: Marketing Routing & Analysis - Best Campaign Question
+[PASS] Test 9: Operations Routing & Analysis - Bottlenecks & Efficiency Question
+[PASS] Test 10: Unsupported Question Handling - Customer Lifetime Value
+[PASS] Test 11: Different questions produce meaningfully different output answers
+
+Results: 11/11 tests passed.

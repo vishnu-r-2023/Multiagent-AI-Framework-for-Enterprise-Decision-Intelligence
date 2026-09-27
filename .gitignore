@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+
+# Environment and local secrets
+.env
+.env.*
+!.env.example
+
+# Frontend build output
+frontend/dist/
+
+# Logs and test coverage
+*.log
+logs/
+coverage/
+
+# Runtime and local data
+*.pid
+*.seed
+*.sqlite
+*.sqlite3
+*.db
+uploads/
+tmp/
+temp/
+
+# Local tooling
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini
